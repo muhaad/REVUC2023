@@ -13,8 +13,8 @@ import json
 # Set environment variables for your credentials
 # Read more at http://twil.io/secure
 
-account_sid = "AC7606568450382565cf9093d862dc94aa"
-auth_token = "a4814a157c52a03618d3a0419a2e7eed"
+account_sid = "sid"
+auth_token = "token"
 client = Client(account_sid, auth_token)
 
 def signal_handler(signal, frame):
@@ -85,9 +85,10 @@ def main():
     if(message!=None):
       send_time=int(message)
       print("send time:", send_time)
-      if((current_time.hour)>send_time):
+      if((current_time.hour)==send_time):
         send_message(message)
-        send_time=send_time+24
-        return
+        send_time=send_time
+        
+        
     
 main()
